@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Shop All</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Kings&family=Smythe&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
+<style>
+
+  :root{
+    --ink: #111111;
+    --paper: #FDFDFC;
+    --gray-100: #F3F3F1;
+    --gray-300: #DAD9D5;
+    --gray-500: #9A9995;
+    --gray-700: #55534F;
+
+    --accent: #3B6E52;
+    --accent-ink: #FFFFFF;
+
+    --font-logo: "Kings", cursive;
+    --font-display: "Smythe", cursive;
+    --font-body: "Courier Prime", "Courier New", monospace;
+  }
+
+  *{ box-sizing:border-box; }
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:var(--font-body);
+    line-height:1.7;
+  }
+
+  /* ---------- nav ---------- */
+  nav{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:20px 40px; border-bottom:1px solid var(--gray-300);
+    flex-wrap:wrap; gap:16px;
+  }
+  .nav-logo{ font-family:var(--font-logo); font-size:30px; }
+  .nav-links{ display:flex; gap:32px; list-style:none; margin:0; padding:0; }
+  .nav-links a{
+    color:var(--ink); text-decoration:none; font-size:14px;
+    letter-spacing:0.5px; border-bottom:1px solid transparent;
+  }
+  .nav-links a:hover{ border-bottom-color:var(--accent); color:var(--accent); }
+  .nav-right{ display:flex; align-items:center; gap:16px; }
+  .icon-btn{
+    width:38px; height:38px; border-radius:50%;
+    border:1px solid var(--gray-300); background:none;
+    display:flex; align-items:center; justify-content:center;
+    font-size:14px; cursor:pointer; color:var(--ink);
+  }
+  .btn-accent{
+    font-family:var(--font-body); font-weight:700; font-size:13px;
+    padding:10px 20px; border-radius:20px; border:1.5px solid var(--accent);
+    background:var(--accent); color:var(--accent-ink); cursor:pointer;
+    letter-spacing:0.5px;
+  }
+
+  /* ---------- promo banner ---------- */
+  .promo{
+    background:var(--gray-100);
+    text-align:center; padding:12px;
+    font-size:13px; letter-spacing:1px; color:var(--gray-700);
+    border-bottom:1px solid var(--gray-300);
+  }
+
+  /* ---------- hero ---------- */
+  .hero{
+    padding:70px 40px 60px;
+    text-align:center;
+    border-bottom:1px solid var(--gray-300);
+  }
+  .hero .eyebrow{
+    font-size:12px; letter-spacing:2px; text-transform:uppercase;
+    color:var(--accent); font-weight:700; margin-bottom:14px;
+  }
+  .hero h1{
+    font-family:var(--font-display); font-weight:400;
+    font-size:clamp(40px,6vw,64px); margin:0 0 12px;
+  }
+  .hero p{ color:var(--gray-700); font-size:15px; max-width:520px; margin:0 auto; }
+
+  /* ---------- shop layout ---------- */
+  .shop{
+    display:grid;
+    grid-template-columns:220px repeat(3,1fr);
+    gap:24px;
+    padding:48px 40px;
+    max-width:1200px; margin:0 auto;
+  }
+  @media (max-width:880px){ .shop{ grid-template-columns:1fr 1fr; } .featured-tile{ grid-column:1 / -1; } }
+
+  .featured-tile{
+    background:var(--ink); color:var(--paper);
+    border-radius:10px; padding:24px;
+    display:flex; flex-direction:column; justify-content:space-between;
+    min-height:340px;
+  }
+  .featured-tile .tag{
+    align-self:flex-start;
+    background:var(--accent); color:var(--accent-ink);
+    font-size:11px; font-weight:700; padding:4px 10px; border-radius:20px;
+  }
+  .featured-tile h3{
+    font-family:var(--font-display); font-weight:400; font-size:28px; margin:16px 0 8px;
+  }
+  .featured-tile p{ font-size:13px; color:var(--gray-300); margin:0 0 20px; }
+  .featured-tile a{
+    color:var(--paper); font-size:13px; font-weight:700;
+    text-decoration:underline; text-underline-offset:3px;
+  }
+
+  .product-card{
+    border:1px solid var(--gray-300); border-radius:10px;
+    overflow:hidden; display:flex; flex-direction:column;
+    background:var(--paper);
+  }
+  .product-image{
+    aspect-ratio:1/1; background:var(--gray-100);
+    display:flex; align-items:center; justify-content:center;
+    color:var(--gray-500); font-size:12px; letter-spacing:1px;
+  }
+  .product-info{ padding:16px; display:flex; flex-direction:column; gap:4px; flex:1; }
+  .product-info .name{ font-size:14px; font-weight:700; margin:0; }
+  .product-info .meta{ font-size:12px; color:var(--gray-500); margin:0 0 10px; }
+  .product-info .price-row{
+    margin-top:auto; display:flex; align-items:center; justify-content:space-between;
+  }
+  .price{ font-size:15px; font-weight:700; }
+  .add-btn{
+    font-family:var(--font-body); font-size:12px; font-weight:700;
+    padding:8px 14px; border-radius:6px; border:1.5px solid var(--ink);
+    background:none; color:var(--ink); cursor:pointer;
+  }
+  .add-btn:hover{ background:var(--ink); color:var(--paper); }
+
+  /* ---------- bottom links row ---------- */
+  .link-row{
+    display:flex; justify-content:center; gap:40px;
+    padding:0 40px 70px; flex-wrap:wrap;
+  }
+  .link-row a{
+    color:var(--ink); font-size:13px; text-decoration:none;
+    border-bottom:1px solid var(--gray-300); padding-bottom:2px;
+  }
+  .link-row a:hover{ border-bottom-color:var(--accent); color:var(--accent); }
+
+</style>
+</head>
+<body>
+
+  <nav>
+    <ul class="nav-links">
+      <li><a href="#">Shop</a></li>
+      <li><a href="#">About</a></li>
+	<li><button class="icon-btn">⚲</button></li>
+    </ul>
+	<div class="nav-logo">Brand Name</div>
+    <div class="nav-right">
+      <ul class="nav-links">
+      <a href="#">Login</a>
+	  </ul>
+      <button class="btn-accent">Cart (0)</button>
+    </div>
+  </nav>
+
+  <div class="promo">Free shipping on orders over $50 — ends Sunday</div>
+
+  <section class="hero">
+    <div class="eyebrow">Shop All</div>
+    <h1>Everything, all in one place</h1>
+    <p>Browse the full collection — new arrivals, staples, and a few things you didn't know you needed.</p>
+  </section>
+
+  <section class="shop">
+    <div class="featured-tile">
+      <div>
+        <span class="tag">Featured</span>
+        <h3>Autumn edit</h3>
+        <p>A small curated set for the season ahead.</p>
+      </div>
+      <a href="#">View the edit →</a>
+    </div>
+
+    <div class="product-card">
+      <div class="product-image">Product image</div>
+      <div class="product-info">
+        <p class="name">Wool Overshirt</p>
+        <p class="meta">Charcoal · S–XL</p>
+        <div class="price-row">
+          <span class="price">$128</span>
+          <button class="add-btn">Add</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card">
+      <div class="product-image">Product image</div>
+      <div class="product-info">
+        <p class="name">Canvas Tote</p>
+        <p class="meta">Natural · One size</p>
+        <div class="price-row">
+          <span class="price">$46</span>
+          <button class="add-btn">Add</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card">
+      <div class="product-image">Product image</div>
+      <div class="product-info">
+        <p class="name">Ribbed Beanie</p>
+        <p class="meta">Forest · One size</p>
+        <div class="price-row">
+          <span class="price">$32</span>
+          <button class="add-btn">Add</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="link-row">
+    <a href="#">Sizing guide</a>
+    <a href="#">Shipping &amp; returns</a>
+    <a href="#">View all 48 products →</a>
+  </div>
+
+</body>
+</html>
