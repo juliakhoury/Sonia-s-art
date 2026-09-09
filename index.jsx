@@ -1,6 +1,6 @@
 <>
     <meta charSet="UTF-8" />
-    <title>Sonia's Art — Redesign</title>
+    <title>Sonia's Art</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link
         href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Work+Sans:wght@400;500;600&display=swap"
