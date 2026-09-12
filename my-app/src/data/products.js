@@ -1,0 +1,38 @@
+export const products = [
+    {
+        id: 'low-tide-sandy-hook',
+        name: 'Low Tide, Sandy Hook',
+        meta: 'Oil on canvas · 16 × 20 in',
+        mood: 'warm + earthbound',
+        price: '$420',
+        image: '/images/low-tide-sandy-hook.jpg',
+        gradientClass: 'p1',
+    },
+    {
+        id: 'understory',
+        name: 'Understory',
+        meta: 'Acrylic on panel · 20 × 24 in',
+        mood: 'quiet + minimal',
+        price: '$560',
+        image: '/images/understory.jpg',
+        gradientClass: 'p2',
+    },
+    {
+        id: 'dusk-route-9',
+        name: 'Dusk, Route 9',
+        meta: 'Oil on canvas · 18 × 24 in',
+        mood: 'moody + blue',
+        price: '$480',
+        image: '/images/dusk-route-9.jpg',
+        gradientClass: 'p3',
+    },
+    {
+        id: 'cold-front',
+        name: 'Cold Front',
+        meta: 'Oil on linen · 24 × 30 in',
+        mood: 'moody + blue',
+        price: '$640',
+        image: '/images/cold-front.jpg',
+        gradientClass: 'p4',
+    },
+];
